@@ -86,6 +86,10 @@
   color: #f8f007;
   font-family: 'Arial', sans-serif;
 }
+p.description {
+  color: #f8f007;
+  font-family: Arial, sans-serif;
+}
 
 .dot { color: var(--primary-red); margin-right: 10px; }
 .arrow { color: var(--primary-red); font-size: 2rem; margin-top: 20px; }
