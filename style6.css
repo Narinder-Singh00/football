@@ -48,7 +48,7 @@
     position: relative;
 }
 
-.subtitle {
+.subtitle2 {
     color: var(--text-dark);
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
@@ -170,7 +170,7 @@
         flex-direction: column;
         text-align: center;
     }
-    .subtitle, .feature-item {
+    .subtitle2, .feature-item {
         justify-content: center;
     }
     .benefits-list li {

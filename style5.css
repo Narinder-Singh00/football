@@ -74,7 +74,7 @@
   display: none; /* Hide the vertical-ish title when expanded */
 }
 
-.subtitle {
+.subtitle1 {
   color: #fff;
   font-size: 1.8rem;
   margin-bottom: 15px;
@@ -83,7 +83,7 @@
 .description {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #f8f007;
+  color: #62614b;
   font-family: 'Arial', sans-serif;
 }
 p.description {
