@@ -1,6 +1,7 @@
 .players-hero {
     position: relative;
-    height: 80vh;
+    min-height: 100vh;
+    height: 100vh;
     background: radial-gradient(circle, #333 0%, #111 100%);
     overflow: hidden;
     display: flex;
@@ -24,6 +25,9 @@
     width: 100%;
     max-width: 1200px;
     z-index: 2;
+    perspective: 1000px; /* Gives the 3D depth effect */
+    overflow: visible; /* Allows scaled players to pop out */
+
 }
 
 .player-track {
@@ -99,11 +103,6 @@
 }
 /* --- New Effects & Responsiveness --- */
 
-/* 1. Added 3D Perspective to the container */
-.slider-container {
-    perspective: 1000px; /* Gives the 3D depth effect */
-    overflow: visible; /* Allows scaled players to pop out */
-}
 
 /* 2. Refined Player Slide Effects */
 .player-slide {
