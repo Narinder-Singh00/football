@@ -1,0 +1,135 @@
+/* ================= MATCH SECTION ================= */
+
+.match-section {
+  background: url("images/stadium-bg.png") center/cover no-repeat;
+  padding: 120px 60px;
+  min-height: 100vh;
+}
+
+/* ===== Score Cards ===== */
+
+.score-card {
+  background: linear-gradient(90deg, #d61515, #000);
+  padding: 25px 40px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.score-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px #d61515;
+}
+
+.score-top {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.score-top span {
+  color: #ffff00;
+  font-weight: 900;
+}
+
+.score-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===== Grid Layout ===== */
+
+.match-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* ===== Glass Boxes ===== */
+
+.glass-box {
+  background: rgba(0,0,0,0.85);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.glass-box:hover {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.glass-box h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* ===== Form Styling ===== */
+
+.glass-box input,
+.glass-box select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+}
+
+.glass-box button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #d61515, #c41717);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.glass-box button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #d61515(196, 23, 23, 0.4);
+}
+
+/* ===== Calendar Items ===== */
+
+.calendar-item {
+  background: rgba(255,255,255,0.08);
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s ease;
+}
+
+.calendar-item:hover {
+  background: linear-gradient(90deg, #d61515, #000);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 992px) {
+  .match-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .score-top {
+    font-size: 22px;
+  }
+
+  .match-section {
+    padding: 100px 20px;
+  }
+}

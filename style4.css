@@ -1,0 +1,154 @@
+.players-hero {
+    position: relative;
+    height: 80vh;
+    background: radial-gradient(circle, #333 0%, #111 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-overlay-text {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.slider-container {
+    width: 100%;
+    max-width: 1200px;
+    z-index: 2;
+}
+
+.player-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    align-items: flex-end;
+}
+
+.player-slide {
+    min-width: 33.33%;
+    transition: all 0.5s ease;
+    filter: brightness(0.5) grayscale(0.5);
+    transform: scale(0.8);
+    opacity: 0.6;
+}
+
+.player-slide.active {
+    filter: brightness(1) grayscale(0);
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 10;
+}
+
+.player-slide img {
+    width: 100%;
+    display: block;
+}
+
+/* Nav Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 20;
+    font-size: 2rem;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Side UI elements */
+.color-picker-ui {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    background: white;
+    border-radius: 50px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 30;
+}
+
+.go-top {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    background: #c31e1e;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* --- New Effects & Responsiveness --- */
+
+/* 1. Added 3D Perspective to the container */
+.slider-container {
+    perspective: 1000px; /* Gives the 3D depth effect */
+    overflow: visible; /* Allows scaled players to pop out */
+}
+
+/* 2. Refined Player Slide Effects */
+.player-slide {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+                filter 0.6s ease, 
+                opacity 0.6s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* 3. The "Focus" Effect (3D Rotation) */
+/* Players to the left tilt right, players to the right tilt left */
+.player-slide:not(.active) {
+    transform: scale(0.7) rotateY(15deg);
+    filter: brightness(0.3) grayscale(1);
+}
+
+.player-slide.active {
+    transform: scale(1.2) translateZ(50px); /* Brings the center player forward */
+    filter: brightness(1.1) grayscale(0);
+    opacity: 1;
+    z-index: 100;
+}
+
+/* 4. Responsive Media Queries */
+@media (max-width: 1024px) {
+    .hero-overlay-text { font-size: 3.5rem; top: 15%; }
+    .player-slide { min-width: 50%; } /* Show 2 players on tablets */
+}
+
+@media (max-width: 768px) {
+    .players-hero { height: 60vh; }
+    .hero-overlay-text { font-size: 2rem; }
+    .player-slide { min-width: 100%; } /* Show 1 player on mobile */
+    .player-slide.active { transform: scale(1.05); }
+    
+    .nav-btn {
+        padding: 10px;
+        font-size: 1.5rem;
+        background: rgba(0,0,0,0.5);
+    }
+}
+
+/* 5. Hover Effect for interactivity */
+.player-slide:hover:not(.active) {
+    filter: brightness(0.7) grayscale(0.5);
+    transform: scale(0.8) rotateY(0deg);
+}

@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #636161;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.social {
+  display: flex;
+  gap: 11px;
+  color: white;
+  background: #c41717;
+  padding: 10px 12px;
+  border-radius: 5px;
+}
+
+.social i {
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 150px 60px 60px 60px;
+  background: url("images/background.png") no-repeat center center/cover;
+  min-height: 100vh;
+}
+
+.hero-left {
+  max-width: 50%;
+}
+
+.small-text {
+  color: #c41717;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.hero-left h1 {
+  font-size: 64px;
+  font-weight: 900;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.sub-text {
+  color: #777;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-red {
+  background: #c41717;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #111;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* Smooth transition for all buttons */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Red Button Hover */
+.btn-red:hover {
+  background: #a10f0f;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(196, 23, 23, 0.4);
+}
+
+/* Outline Button Hover */
+.btn-outline:hover {
+  background: #111;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-right img {
+    width: 350px;
+    margin-top: 30px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .social {
+    display: none;
+  }
+}
+
+
+.hero-left h1 {
+  animation: slideUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.sub-text {
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+.nav-links a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #c41717;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #c41717;
+}

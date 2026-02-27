@@ -1,0 +1,108 @@
+:root {
+  --primary-red: #d32f2f;
+  --transition-speed: 0.6s;
+}
+
+.facility-section {
+  display: flex;
+  width: 100%;
+  height: 600px; /* Adjust based on your design */
+  overflow: hidden;
+  font-family: 'Oswald', sans-serif; /* Recommended for this bold look */
+  background: #000;
+}
+
+.facility-card {
+  position: relative;
+  flex: 1; /* Equal width for all */
+  background-size: cover;
+  background-position: center;
+  transition: all var(--transition-speed) cubic-bezier(0.25, 0.1, 0.25, 1);
+  cursor: pointer;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Hover Effect: Expand the card */
+.facility-card:hover {
+  flex: 2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.8) 100%);
+  z-index: 1;
+}
+
+/* Content Styling */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 40px 20px;
+  width: 100%;
+  color: white;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Expanded View (Hidden by default) */
+.expanded-info {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  max-width: 80%;
+  margin-bottom: 20px;
+}
+
+.facility-card:hover .expanded-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.facility-card:hover .title {
+  display: none; /* Hide the vertical-ish title when expanded */
+}
+
+.subtitle {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ccc;
+  font-family: 'Arial', sans-serif;
+}
+
+.dot { color: var(--primary-red); margin-right: 10px; }
+.arrow { color: var(--primary-red); font-size: 2rem; margin-top: 20px; }
+
+/* Responsive: Stack vertically on mobile */
+@media (max-width: 768px) {
+  .facility-section {
+    flex-direction: column;
+    height: auto;
+  }
+  .facility-card {
+    height: 300px;
+    flex: none;
+    width: 100%;
+  }
+  .facility-card:hover {
+    height: 450px;
+    flex: none;
+  }
+}
