@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style6.css">
   <link rel="stylesheet" href="style7.css">
   <link rel="stylesheet" href="style8.css">
+  <link rel="stylesheet" href="footer.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -23,11 +24,11 @@
   </div>
 
   <nav class="nav-links" id="navLinks">
-    <a href="#">ABOUT US></a>
-    <a href="#">MEMBERSHIP></a>
-    <a href="#">EVENTS></a>
-    <a href="#">MATCHES></a>
-    <a href="#">CONTACTS></a>
+    <a href="#home">HOME></a>
+    <a href="#matches">MATCHES></a>
+    <a href="#about">ABOUT US></a>
+    <a href="#events">EVENTS></a>
+    <a href="#contacts">CONTACTS></a>
   </nav>
 
   <div class="social">
@@ -45,7 +46,7 @@
 </header>
 
 
-<section class="hero">
+<section class="hero" id="home">
 
   <div class="hero-left">
     <p class="small-text">\ KHAD BATHLOUR FC \</p>
@@ -68,8 +69,7 @@
 
 </section>
 
-<section class="match-section">
-
+<section class="match-section" id="matches">
   <!-- ===== SCORE CARDS ===== -->
 
   <div class="score-card">
@@ -148,7 +148,7 @@
 
 </section>
 
-<section class="lions-stats">
+<section class="lions-stats" id="about">
     <div class="stat-item">
         <h2>30 +</h2>
         <p>MATCHES PLAYED</p>
@@ -316,10 +316,12 @@
 <section class="why-choose-us">
     <div class="container">
         <div class="image-column">
+          
             <div class="image-wrapper">
                 <img src="images/logo.png" alt="Soccer Player" class="main-player">
                 </div>
         </div>
+        
 
         <div class="content-column">
             <div class="section-header">
@@ -358,28 +360,88 @@
     </div>
 </section>
 
-<section class="football-experience">
-  <span class="section-tagline">What We Do</span>
-  <h1 class="main-title">A Complete Football Experience For Every Player</h1>
+<section class="football-video-section" id ="events">
 
-  <div class="image-container">
-    <div class="card-gallery">
-  <div class="pill-card card-left">
-    <img src="images/coach1.png" alt="Football Player">
+  <!-- FEATURED -->
+  <div class="featured-slider">
+    <div class="slide active"
+         data-video="https://www.youtube.com/watch?v=AwXOiR1epcw">
+      <div class="overlay"></div>
+      <div class="slide-content">
+        <span>February 28, 2018</span>
+        <h2>INSIDE THE STADIUM AND MATCHDAY ATMOSPHERE</h2>
+      </div>
+    </div>
   </div>
+  
 
-  <div class="pill-card card-center">
-    <img src="images/stadium-bg.png" alt="Football on Grass">
-  </div>
+  <!-- GRID -->
+  <div class="video-grid">
 
-  <div class="pill-card card-right">
-    <img src="images/coach2.png" alt="Coach">
-  </div>
-</div>
+    <div class="video-card"
+         data-video="https://www.youtube.com/watch?v=VIDEO_ID_2">
+      <div class="card-overlay"></div>
+      <div class="play-circle"></div>
+      <span class="duration">07:12</span>
+      <div class="card-content">
+        <span>February 28, 2018</span>
+        <h3>FOOTBALL CLUBS GLOBAL IDENTITY</h3>
+      </div>
+    </div>
+    <div class="video-card"
+         data-video="https://www.youtube.com/watch?v=VIDEO_ID_2">
+      <div class="card-overlay"></div>
+      <div class="play-circle"></div>
+      <span class="duration">07:12</span>
+      <div class="card-content">
+        <span>February 28, 2018</span>
+        <h3>FOOTBALL CLUBS GLOBAL IDENTITY</h3>
+      </div>
+    </div>
+    <div class="video-card"
+         data-video="https://www.youtube.com/watch?v=VIDEO_ID_2">
+      <div class="card-overlay"></div>
+      <div class="play-circle"></div>
+      <span class="duration">07:12</span>
+      <div class="card-content">
+        <span>February 28, 2018</span>
+        <h3>FOOTBALL CLUBS GLOBAL IDENTITY</h3>
+      </div>
+    </div>
+
+    <!-- Add unlimited more -->
+
   </div>
 </section>
 
-<section class="hero-section">
+<!-- MODAL -->
+<div class="video-modal">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+    <iframe id="modal-video"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+    <!-- Add more videos same structure -->
+
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="video-modal">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+    <iframe id="modal-video"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<section class="hero-section" id="contacts">
     <div class="container">
         <div class="content-left">
             <div class="badge">
@@ -408,6 +470,50 @@
         </div>
     </div>
 </section>
+
+<footer class="lions-footer">
+    <div class="footer-container">
+        <div class="footer-column navigation">
+            <h3>NAVIGATION</h3>
+            <div class="red-line"></div>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Sponsors</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-center">
+            <div class="logo-area">
+                <img src="images/logo.png" alt="Khad Bathlour FC" style="width:40px;">
+                <span class="brand-name">KHAD BATHLOUR FC</span>
+            </div>
+            <p class="description">
+                Proudly representing Rupnagar Punjab, Khad Bathlour FC is a dynamic football club dedicated to excellence on and off the field.
+            </p>
+            <div class="social-icons">
+                <a href="#" class="icon-box"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="icon-box"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="icon-box"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icon-box"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-map">
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps?q=Rupnagar,Punjab,India&output=embed" 
+                    style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        2026 © Khad Bathlour FC | ALL RIGHTS RESERVED
+    </div>
+</footer>
 
 <script src="script.js"></script>
 <script src="script2.js"></script>
