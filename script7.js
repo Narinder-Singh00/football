@@ -1,52 +1,42 @@
-// Extract YouTube ID
-function getYouTubeID(url) {
-  const regExp = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/;
-  const match = url.match(regExp);
-  return match ? match[1] : null;
-}
+// Simple fade-in animation on scroll
+const cards = document.querySelectorAll(".yt-card");
 
-// Set Thumbnails Automatically
-document.querySelectorAll(".slide, .video-card")
-.forEach(el => {
-  let url = el.getAttribute("data-video");
-  let videoID = getYouTubeID(url);
-
-  if(videoID){
-    let thumbnail = `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`;
-    el.style.backgroundImage = `url(${thumbnail})`;
-    el.style.backgroundSize = "cover";
-    el.style.backgroundPosition = "center";
-  }
+window.addEventListener("scroll", () => {
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < window.innerHeight - 50) {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+        }
+    });
 });
 
-// AUTO SLIDER
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+cards.forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    card.style.transition = "all 0.6s ease";
+});
+const popup = document.querySelector(".yt-popup");
+const player = document.getElementById("yt-player");
 
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 5000);
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        const videoId = card.getAttribute("data-video");
 
-// MODAL OPEN 75%
-const modal = document.querySelector(".video-modal");
-const modalVideo = document.getElementById("modal-video");
+        // Stop any existing video first
+        player.src = "";
 
-document.querySelectorAll(".slide, .video-card")
-.forEach(el => {
-  el.addEventListener("click", () => {
-    let url = el.getAttribute("data-video");
-    let videoID = getYouTubeID(url);
+        // Set new video
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
-    modal.classList.add("active");
-    modalVideo.src = `https://www.youtube.com/embed/${videoID}?autoplay=1`;
-  });
+        popup.classList.add("active");
+    });
 });
 
-// CLOSE
-document.querySelector(".close-modal")
-.addEventListener("click", () => {
-  modal.classList.remove("active");
-  modalVideo.src = "";
+// Close popup when clicking outside video
+popup.addEventListener("click", (e) => {
+    if (!e.target.closest(".yt-popup-content")) {
+        popup.classList.remove("active");
+        player.src = ""; // Stop video completely
+    }
 });
